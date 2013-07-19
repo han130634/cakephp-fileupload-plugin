@@ -49,7 +49,7 @@ This will add file upload functionality to your model with the default settings.
 
 The current settings are available:
 
-* `allowedTypes`: an associative array; key names are a MIME type and values are the corresponding file extension
+* `allowedTypes`: an associative array of allowed file extensions
 * `inputName`: the name of the input in your form (defaults to `filename`)
 * `required`: a boolean; if set to `true` you’ll need to provide a file for the form to validate
 * `uploadDir`: directory (relative from **app/webroot**) to move uploaded files to

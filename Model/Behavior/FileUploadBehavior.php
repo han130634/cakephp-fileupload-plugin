@@ -5,7 +5,7 @@ class FileUploadBehavior extends ModelBehavior {
         if (!isset($this->settings[$Model->alias])) {
             $this->settings[$Model->alias] = array(
                 'allowedTypes' => array(
-                    'image/jpeg' => 'jpg'
+                    'jpg'
                 ),
                 'inputName' => 'filename',
                 'required' => false,
@@ -47,7 +47,9 @@ class FileUploadBehavior extends ModelBehavior {
     }
     
     public function fileTypeValid($file, $allowedTypes) {
-        return (array_key_exists($file['type'], $allowedTypes));
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        
+        return (in_array($extension, $allowedTypes));
     }
     
     public function moveUploadedFile($file, $uploadDir) {
